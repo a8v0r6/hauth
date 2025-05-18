@@ -1,0 +1,38 @@
+package com.secure.hauth.controller;
+
+
+import com.secure.hauth.dto.UserLoginDTO;
+import com.secure.hauth.entity.UserModel;
+import com.secure.hauth.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api")
+public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @PostMapping("/register")
+    public ResponseEntity<?> registerUser(@RequestBody UserModel userDTO) {
+        userService.registerUser(userDTO);
+        return ResponseEntity.ok("User registered successfully");
+    }
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody UserLoginDTO userDTO) {
+        // Perform authentication logic
+        // Return appropriate response or token
+        return ResponseEntity.ok("Login successful");
+    }
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout() {
+        // Perform logout logic
+        // Invalidate token or session
+        return ResponseEntity.ok("Logout successful");
+    }
+}
