@@ -22,6 +22,8 @@ public class UserModel implements UserDetails {
     private String password;
     @Column(nullable = false, unique = true, length = 100)
     private String email;
+    @Column(nullable = false)
+    private String fullName;
     @CreationTimestamp
     @Column(updatable = false, name = "created_at")
     private Date createdAt;

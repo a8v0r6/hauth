@@ -5,7 +5,7 @@ import com.secure.hauth.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -14,7 +14,7 @@ public class UserServiceImpl implements UserService{
     private UserRepository userRepository;
 
     @Override
-    public UUID registerUser(UserModel userDTO) {
-        return userRepository.save(userDTO).getId();
+    public List<UserModel> getAllUsers() {
+        return userRepository.findAll();
     }
 }

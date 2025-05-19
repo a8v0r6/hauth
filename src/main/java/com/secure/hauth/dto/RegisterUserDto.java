@@ -3,7 +3,10 @@ package com.secure.hauth.dto;
 import lombok.Data;
 
 @Data
-public class UserLoginDTO {
-    private String username;
+public class RegisterUserDto {
+    private String email;
+
     private String password;
+
+    private String fullName;
 }
